@@ -1,0 +1,207 @@
+.w-xs {
+    // col-12
+    @include for-phone-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-6
+    @include for-tablet-portrait-only {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    // col-4
+    @include for-tablet-landscape-only {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    // col-2
+    @include for-desktop-only {
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+    // col-2
+    @include for-big-desktop-up {
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+}
+
+.w-s {
+    // col-12
+    @include for-phone-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-portrait-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-6
+    @include for-tablet-landscape-only {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    // col-3
+    @include for-desktop-only {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    // col-3
+    @include for-big-desktop-up {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+.w-m {
+    // col-12
+    @include for-phone-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-portrait-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-6
+    @include for-tablet-landscape-only {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    // col-4
+    @include for-desktop-only {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    // col-4
+    @include for-big-desktop-up {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+}
+
+.w-l {
+    // col-12
+    @include for-phone-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-portrait-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    // When we have minimized sidebar, change to col-6
+    @include for-tablet-landscape-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-6
+    @include for-desktop-only {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    // col-6
+    @include for-big-desktop-up {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+.w-xl {
+    // col-12
+    @include for-phone-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-portrait-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-6
+    @include for-tablet-landscape-only {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    // col-8
+    @include for-desktop-only {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+    // col-8
+    @include for-big-desktop-up {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+}
+
+.w-xxl {
+    // col-12
+    @include for-phone-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-portrait-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-landscape-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-10
+    @include for-desktop-only {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+    // Col-10
+    @include for-big-desktop-up {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+}
+
+.w-xxxl {
+    // col-12
+    @include for-phone-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-portrait-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-tablet-landscape-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // col-12
+    @include for-desktop-only {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    // Col-12
+    @include for-big-desktop-up {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+// Height
+.h-xxxxs { height: 150px; }
+.h-xxxs { height: 200px; }
+.h-xxs { height: 250px; }
+.h-xs { height: 300px; }
+.h-sm { height: 350px; }
+.h-md { height: 400px; }
+.h-lg { height: 450px; }
+.h-xl { height: 500px; }
+.h-xxl {height: 550px; }

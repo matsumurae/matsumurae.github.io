@@ -1,0 +1,37 @@
+// Toolbar for maps
+// https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap?hl=es-419
+.map__content {
+    position: relative;
+}
+
+.map__toolbar {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+    transform: translate(-50%, 0%);
+    z-index: 5;
+    button {
+        background-color: #fff;
+        color: #565656;
+        padding: 8px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+        text-align: center;
+        min-width: 30px;
+        border: 0;
+        font-size: 11px;
+        line-height: normal;
+    }
+    // Only one
+    button:first-child:nth-last-child(1) {
+        border-radius: $border-radius;
+    }
+    // Two buttons -- select first
+    button:first-child:nth-last-child(2) {
+        border-bottom-left-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+    }
+    button+button {
+        border-bottom-right-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+    }
+}

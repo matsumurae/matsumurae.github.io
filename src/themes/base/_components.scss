@@ -1,0 +1,33 @@
+// Base
+@import "./components/dropdown",
+"./components/badge",
+"./components/nav",
+"./components/buttons",
+"./components/forms",
+"./components/custom-forms",
+"./components/chart",
+"./components/tables",
+"./components/card",
+"./components/collapse",
+"./components/alerts",
+"./components/close",
+"./components/tabs",
+"./components/pagination",
+"./components/modal",
+"./components/maps",
+"./components/datepicker",
+"./components/right-sidebar";
+
+// Charts
+@import "./charts/number",
+"./charts/pie";
+
+// Modules
+@import "./modules/tracker",
+"./modules/presence",
+"./modules/door",
+"./modules/status";
+
+// Components
+@import "./components/navbar",
+"./components/footer";

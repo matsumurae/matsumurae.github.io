@@ -1,0 +1,33 @@
+@import "./variables/colors",
+"./variables/common",
+"./variables/space",
+"./variables/typo",
+"./variables/breakpoints",
+"./variables/enable",
+// "./variables/thumbnails",
+"./variables/grid",
+"./variables/z-index",
+"./variables/paths";
+
+@import
+// "./variables/code",
+"./variables/buttons",
+"./variables/forms",
+"./variables/pagination",
+"./variables/modal",
+"./variables/alert",
+"./variables/badge",
+"./variables/tooltip",
+// "./variables/popover",
+"./variables/card",
+"./variables/dropdown",
+"./variables/table",
+"./variables/nav",
+// "./variables/progress-bar",
+"./variables/charts",
+"./variables/status",
+"./variables/images",
+"./variables/navbar",
+"./variables/footer";
+
+@import "./variables/error";

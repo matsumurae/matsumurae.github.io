@@ -1,0 +1,33 @@
+{
+    "name": "matsumurae.github.io",
+    "version": "0.0.1",
+    "description": "Matsumurae website",
+    "main": "",
+    "scripts": {},
+    "keywords": [
+        "portfolio"
+    ],
+    "homepage": "http://matsumurae.github.io/",
+    "private": true,
+    "ignore": [
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {},
+    "devDependencies": {
+        "bootstrap": "^4.0.0",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^4.1.0",
+        "gulp-clean-css": "^3.9.2",
+        "gulp-csscomb": "^3.0.8",
+        "gulp-imagemin": "^4.1.0",
+        "gulp-notify": "^3.2.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.4",
+        "jquery": "^3.3.1",
+        "material-design-iconic-font": "^2.2.0",
+        "popper.js": "^1.13.0",
+        "run-sequence": "^2.2.0"
+    }
+}

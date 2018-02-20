@@ -1,0 +1,137 @@
+// @import "./../../../../../node_modules/bootstrap/scss/type";
+
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    color: $headings-color;
+    @include rem-fallback(margin-bottom, $headings-margin-bottom);
+}
+
+h1, .h1 { @include rem-fallback(font-size, $h1-font-size); }
+h2, .h2 { @include rem-fallback(font-size, $h2-font-size); }
+h3, .h3 { @include rem-fallback(font-size, $h3-font-size); }
+h4, .h4 { @include rem-fallback(font-size, $h4-font-size); }
+h5, .h5 { @include rem-fallback(font-size, $h5-font-size); }
+h6, .h6 { @include rem-fallback(font-size, $h6-font-size); }
+
+.lead {
+    font-weight: $lead-font-weight;
+    @include rem-fallback(font-size, $lead-font-size);
+}
+
+// Type display classes
+.display-1 {
+    font-weight: $display1-weight;
+    line-height: $display-line-height;
+    @include rem-fallback(font-size, $display1-size);
+}
+.display-2 {
+    font-weight: $display2-weight;
+    line-height: $display-line-height;
+    @include rem-fallback(font-size, $display2-size);
+}
+.display-3 {
+    font-weight: $display3-weight;
+    line-height: $display-line-height;
+    @include rem-fallback(font-size, $display3-size);
+}
+.display-4 {
+    font-weight: $display4-weight;
+    line-height: $display-line-height;
+    @include rem-fallback(font-size, $display4-size);
+}
+
+
+//
+// Horizontal rules
+//
+
+hr {
+    border: 0;
+    border-top: $hr-border-width solid $hr-border-color;
+    @include rem-fallback(margin-top, 1rem);
+    @include rem-fallback(margin-bottom, 1rem);
+}
+
+
+//
+// Emphasis
+//
+
+small,
+.small {
+    font-size: $small-font-size;
+    font-weight: $font-weight-normal;
+}
+
+mark,
+.mark {
+    background-color: $mark-bg;
+    @include rem-fallback(padding, $mark-padding);
+}
+
+
+//
+// Lists
+//
+
+.list-unstyled {
+    @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+    @include list-unstyled;
+}
+.list-inline-item {
+    display: inline-block;
+
+    &:not(:last-child) {
+        margin-right: $list-inline-padding;
+    }
+}
+
+
+//
+// Misc
+//
+
+// Builds on `abbr`
+.initialism {
+    font-size: 90%;
+    text-transform: uppercase;
+}
+
+// Blockquotes
+.blockquote {
+    @include rem-fallback(font-size, $blockquote-font-size);
+    @include rem-fallback(margin-bottom, $spacer);
+}
+
+.blockquote-footer {
+    display: block;
+    font-size: 80%; // back to default font-size
+    color: $blockquote-small-color;
+
+    &::before {
+        content: "\2014 \00A0"; // em dash, nbsp
+    }
+}
+
+// Custom
+.s-blue-title {
+    text-transform: uppercase;
+    color: #77A8E8;
+    @include rem-fallback(font-size, 0.625rem);
+}
+
+.s-grey-title {
+    color: #9B9B9B;
+    @include rem-fallback(font-size, 0.625rem);
+}

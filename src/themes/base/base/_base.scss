@@ -1,0 +1,118 @@
+// Body content
+//---------------------------------------------------------
+html, body {
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    // IE9 fallback
+    // https://github.com/coliff/bootstrap-ie8/blob/master/css/bootstrap-ie9.css
+    clear: both;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: $body-color;
+    background-color: $body-bg;
+
+    font-family: $font-family-base;
+    font-weight: $font-weight-base;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-base;
+    @include rem-fallback(font-size, $font-size-base);
+
+    @include for-tablet-portrait-down {
+        @include rem-fallback(font-size, $font-size-base-mobile);
+    }
+}
+
+// Container for sidebar + content
+.body {
+    // IE9 fallback
+    // https://github.com/coliff/bootstrap-ie8/blob/master/css/bootstrap-ie9.css
+    clear: both;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+
+    flex: 1;
+    display: flex;
+    // margin-top: $body-margin-top;
+    // margin-bottom: ($grid-gutter-width - $card-container-padding);
+}
+// Only content
+.body__content {
+    // IE9 fallback
+    // https://github.com/coliff/bootstrap-ie8/blob/master/css/bootstrap-ie9.css
+    clear: both;
+    display: block;
+
+    flex: 1;
+    order: 0;
+    overflow: auto;
+    // height: calc(100% - #{$footer-min-height});
+
+    @media screen\0 {
+        margin-left: $sidebar-width;
+        // height: calc(100% - 106px);
+    }
+}
+
+@media screen\0 {
+    .sidebar--collapsed .body__content { margin-left: $sidebar-minimized-width; }
+    .sidebar--collapsed.sidebar--hidden .body__content,
+    .sidebar--hidden .body__content { margin-left: 0; }
+}
+
+.body__content,
+.sidebar,
+.navbar,
+.footer {
+    transition: $body-transition;
+}
+
+// Block content
+.block-container {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding: ($grid-gutter-width - $card-container-padding);
+    display: flex;
+    flex-wrap: wrap;
+}
+// If has right sidebar ( inside content )
+.block-container--sidebar { padding: 0; }
+
+// Links
+//-------------------------------------------------
+a {
+    text-decoration: $link-decoration;
+    color: $link-color;
+    
+    &:hover {
+        color: $link-hover-color;
+        text-decoration: $link-hover-decoration;
+    }
+}
+
+a, area, button, [role="button"], input, label, select, summary, textarea {
+    cursor: pointer;
+}
+
+// Images
+img {
+    vertical-align: middle;
+    border-style: none;
+    color: transparent; // hide alt from images
+}
+
+// Visibility
+.hidden {
+    display: none;
+    visibility: hidden;
+}

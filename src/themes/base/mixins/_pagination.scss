@@ -1,0 +1,23 @@
+// Pagination
+
+@mixin pagination-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+    .page-link {
+        line-height: $line-height;
+        @include rem-fallback(font-size, $font-size);
+        @include rem-fallback(padding, ($padding-y $padding-x));
+    }
+  
+    .page-item {
+        &:first-child {
+            .page-link {
+                @include border-left-radius($border-radius);
+            }
+        }
+        &:last-child {
+            .page-link {
+                @include border-right-radius($border-radius);
+            }
+        }
+    }
+}
+  

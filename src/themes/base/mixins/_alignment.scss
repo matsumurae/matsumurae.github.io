@@ -1,0 +1,48 @@
+// Align anything
+// @param {String} $position - Position
+@mixin align($position: relative, $pos-y: -50%, $pos-x: 0) {
+    position: $position;
+    top: 50%;
+    transform: perspective(1px) translateY($pos-y) translateX($pos-x);
+}
+
+// Center absolutely
+@mixin center($position, $pos-y: 50%, $pos-x: 50%) {
+    position: absolute;
+    
+    @if $position == 'vertical' {
+        top: 50%;
+        -webkit-transform: perspective(1px) translateY(-$pos-y);
+        -ms-transform: perspective(1px) translateY(-$pos-y);
+        transform: perspective(1px) translateY(-$pos-y);
+    }
+    @else if $position == 'horizontal' {
+        left: 50%;
+        -webkit-transform: perspective(1px) translateX(-$pos-x);
+        -ms-transform: perspective(1px) translateX(-$pos-x);
+        transform: perspective(1px) translate(-$pos-x);
+    }
+    @else if $position == 'both' {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: perspective(1px) translate(-$pos-y, -$pos-x);
+        -ms-transform: perspective(1px) translate(-$pos-y, -$pos-x);
+        transform: perspective(1px) translate(-$pos-y, -$pos-x);
+    }
+}
+
+// Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+}
+
+//Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}

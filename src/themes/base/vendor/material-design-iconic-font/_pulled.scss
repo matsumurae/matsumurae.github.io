@@ -1,0 +1,15 @@
+// Pulled icons
+// -------------------------
+
+.#{$zmdi-icon-prefix} {
+  &.pull-left {
+    float: left;
+    // margin-right: .15em;
+    @include rem-fallback(margin-left, .15rem);
+  }
+  &.pull-right {
+    float: right;
+    // margin-left: .15em;
+    @include rem-fallback(margin-left, .15rem);
+  }
+}

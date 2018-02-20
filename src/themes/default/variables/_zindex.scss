@@ -1,0 +1,4 @@
+$navbar-zindex: 997;
+$sidebar-overlay-zindex: ($navbar-zindex + 1);
+$sidebar-zindex: ($navbar-zindex - 2);
+$sidebar-zindex-mobile: ($navbar-zindex + 2);

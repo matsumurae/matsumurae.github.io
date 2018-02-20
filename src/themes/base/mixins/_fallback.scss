@@ -1,0 +1,91 @@
+// Añade una propiedad en px y rem
+//
+//@param $property: nombre de la propiedad css
+//@param $values: valor o lista de valores; puedes escribir los valores sin unidad o en px.
+//                Aegurate de separar los valores con espacios y no con comas. Si necesitas separar los valores a
+//                convertir con commas utiliza parentesis.
+//
+//Ej.: rem-fallback(padding, 20); padding: 20px; padding: 20rem;
+//     rem-fallback(padding, 20 20); -> padding: 20px 20px; padding: 20rem 20rem;
+//     rem-fallback(padding, (2rem 2rem));  -> padding: 2rem 2rem; ...
+@mixin rem-fallback($property, $values) {
+    $count: length($values);
+    $count-zero: 0;
+    $count-porcentaje: 0;
+    $list-val-px: ();
+    $list-val-rem: ();
+
+    @if $count == 1 {
+        @if unit($values) == 'px' or unit($values) == '' {
+            @if strip-unit($values) == 0 {
+                $count-zero: $count-zero + 1;
+                $list-val-px: -convert-to($values);
+        
+            } @else {
+                @if unit($values) == '' {
+                        $list-val-px: $values + px;
+                } @else {
+                        $list-val-px: $values;
+                    }
+            }
+            $list-val-rem: unit-calc($values, rem);
+            
+        } @else if unit($values) == 'rem' {
+            $list-val-px: unit-calc($values, px);
+            $list-val-rem: $values;
+        } @else if unit($values) == '%' {
+            @warn 'Aviso de error';
+            @error 'Si vas a utilizar porcentajes no utilices éste mixin';
+        } @else {
+            @error '$values solo acepta valores sin unidad, px o rem. Has introducido lo siguiente:' + $value;
+        }
+    } @else {
+        @for $i from 1 through $count {
+            @if unit(nth($values, $i)) == 'px' or unit(nth($values, $i)) == ''{
+                @if strip-unit(nth($values, $i)) == 0 {
+                    $count-zero: $count-zero + 1;
+                    $list-val-px: append($list-val-px,-convert-to(nth($values, $i)));
+                    $list-val-rem: append($list-val-rem, -convert-to(nth($values, $i)));
+                } @else {
+                    @if unit(nth($values, $i)) == '' {
+                        $list-val-px: append($list-val-px, nth($values, $i)+px);
+            
+                    } @else {
+                        $list-val-px: append($list-val-px, nth($values, $i));
+                    }
+                        $list-val-rem: append($list-val-rem, -convert-to(nth($values, $i),rem));
+                }
+            } @else if unit(nth($values, $i)) == 'rem'{
+                @if nth($values, $i) == 0 {
+                    $count-zero: $count-zero + 1;
+        
+                    $list-val-px: append($list-val-px, -convert-to(nth($values, $i)));
+                    $list-val-rem: append($list-val-rem, -convert-to(nth($values, $i)));
+                } @else {
+                    $list-val-px: append($list-val-px, -convert-to(nth($values, $i), px));
+                    $list-val-rem: append($list-val-rem, nth($values, $i));
+                }
+            } @else if unit(nth($values, $i)) == '%'{
+                $count-porcentaje: $count-porcentaje + 1;
+                $list-val-px: append($list-val-px, nth($values, $i));
+                $list-val-rem: append($list-val-rem, nth($values, $i));
+            } @else {
+                @error '$values solo acepta valores sin unidad, px o rem. Has introducido lo siguiente:' + $values;
+            }
+        }
+    }
+
+    @if $count == $count-zero {
+        @warn 'Aviso de error';
+        @error 'Todos los valores que has introducidos son 0';
+    }
+    
+    @if $count == $count-porcentaje {
+        @warn 'Aviso de error';
+        @error 'Si vas a utilizar porcentajes no utilices éste mixin';
+    }
+
+    // Add property
+    #{$property}: $list-val-px;
+    #{$property}: $list-val-rem;
+}

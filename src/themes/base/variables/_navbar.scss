@@ -1,0 +1,60 @@
+// Navbar
+
+$navbar-padding-y:                  ($spacer / 2) !default;
+$navbar-padding-x:                  $spacer !default;
+
+$navbar-brand-font-size:            $font-size-lg !default;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height:                   ($font-size-base * $line-height-base + $nav-link-padding-y * 2) !default;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-padding-y:            ($navbar-brand-height - $nav-link-height) / 2 !default;
+
+$navbar-toggler-padding-y:           .25rem !default;
+$navbar-toggler-padding-x:           1.2rem !default;
+$navbar-toggler-font-size:           $font-size-lg !default;
+$navbar-toggler-border-radius:       $btn-border-radius !default;
+
+$navbar-dark-color:                 rgba($white,.5) !default;
+$navbar-dark-hover-color:           rgba($white,.75) !default;
+$navbar-dark-active-color:          $white !default;
+$navbar-dark-disabled-color:        rgba($white,.25) !default;
+$navbar-dark-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-dark-toggler-border-color:  rgba($white,.1) !default;
+
+$navbar-light-color:                rgba($black,.5) !default;
+$navbar-light-hover-color:          rgba($black,.7) !default;
+$navbar-light-active-color:         rgba($black,.9) !default;
+$navbar-light-disabled-color:       rgba($black,.3) !default;
+$navbar-light-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-light-toggler-border-color: rgba($black,.1) !default;
+
+// Custom
+$navbar-bg-color: #fff !default;
+$navbar-height: 50px !default;
+$navbar-border-bottom: 1px solid #fafafa !default;
+$navbar-text-color: #000 !default;
+
+$navbar-brand-bg-color: #fff !default;
+$navbar-brand-logo: url("http://coreui.io/demo/Ajax_Demo/img/logo.png") !default;
+$navbar-brand-width: 200px !default;
+$navbar-brand-width-tablet: 250px !default;
+$navbar-brand-width-mobile: 120px !default;
+$navbar-brand-logo-size: 70px auto !default;
+$navbar-brand-padding-y: 0.5rem !default; // 8px
+$navbar-brand-padding-x: 1rem !default; // 16px
+
+$navbar-brand-dropdown-color: #868e96 !default;
+$navbar-brand-dropdown-font-size: 1.75rem !default; // 28px
+$navbar-brand-dropdown-text-align: center !default;
+
+$navbar-brand-minimized-width:        $navbar-height !default;
+$navbar-brand-minimized-bg:           $navbar-bg-color !default;
+$navbar-brand-minimized-logo:         url('http://coreui.io/demo/Ajax_Demo/img/logo-symbol.png') !default;
+$navbar-brand-minimized-logo-size:    1.125rem !default; // 18px
+$navbar-brand-minimized-icon-font-size: 1.2rem !default; // 19.2px
+
+$nav-link-padding-y: 0 !default;
+$nav-link-padding-x: 0 !default;
+
+$nav-link-notification-padding-y: 1rem !default; // 16px
+$nav-link-notification-padding-x: 1rem !default; // 16px

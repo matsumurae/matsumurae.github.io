@@ -1,0 +1,23 @@
+$dropdown-padding-y: 0;
+$dropdown-max-width: 20rem;
+$dropdown-content-max-width: 15rem;
+
+// Items
+$dropdown-item-padding-y:        0.7rem;
+$dropdown-item-padding-x:        0.8rem;
+$dropdown-item-line-height: 1rem;
+
+// Divider
+$dropdown-divider-margin: 0;
+
+// Status
+$dropdown-status-height: 25px;
+$dropdown-status-width: 25px;
+$dropdown-status-background-color: transparent;
+$dropdown-status-color: $white;
+
+$dropdown-status-icon-font-size: 20px;
+$dropdown-status-icon-danger: '\f1f1';
+$dropdown-status-icon-warning: '\f1f9';
+$dropdown-status-icon-info: '\f1f8';
+$dropdown-status-icon-success: '\f1de';

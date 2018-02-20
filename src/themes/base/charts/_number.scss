@@ -1,0 +1,32 @@
+// Chart numbers
+//------------------------------------------------
+.chart--number .chart__title {
+    font-weight: $chart-number-font-weight;
+    letter-spacing: $chart-number-letter-spacing;
+    padding: $chart-number-padding;
+    text-transform: uppercase;
+    @include rem-fallback(font-size, $chart-number-font-size);
+    @include for-tablet-portrait-down {
+        @include rem-fallback(font-size, $chart-number-font-size-mobile);
+    }
+}
+.chart--number .chart__content {
+    // line-height: $chart-number-line-height;
+    @include rem-fallback(font-size, $chart-number-content-font-size);
+    @include for-tablet-portrait-down {
+        @include rem-fallback(font-size, $chart-number-content-font-size-mobile);
+    }
+}
+.chart--number .chart__value,
+.chart--number .chart__unity {
+    display: inline-block;
+    font-weight: $chart-number-content-font-weight;
+}
+.chart--number .chart__unity { font-size: $chart-number-unity-font-size; }
+
+.chart--number .chart__value {
+    &.value--danger { color: $red; }
+    &.value--alert { color: $orange; }
+    &.value--warning { color: $yellow; }
+    > .small { font-weight: inherit; }
+}

@@ -1,0 +1,67 @@
+@mixin borders($borders) {
+    @each $border in $borders {
+        $direction: nth($border, 1);
+        @if $direction == "all" {
+        $size: map-get(map-get($borders, $direction), size);
+        $style: map-get(map-get($borders, $direction), style);
+        $color: map-get(map-get($borders, $direction), color);
+        border: $size $style $color;
+        } @else if $direction == "top" {
+        $size: map-get(map-get($borders, $direction), size);
+        $style: map-get(map-get($borders, $direction), style);
+        $color: map-get(map-get($borders, $direction), color);
+        border-top: $size $style $color;
+        } @else if $direction == "right" {
+        $size: map-get(map-get($borders, $direction), size);
+        $style: map-get(map-get($borders, $direction), style);
+        $color: map-get(map-get($borders, $direction), color);
+        border-right: $size $style $color;
+        } @else if $direction == "bottom" {
+        $size: map-get(map-get($borders, $direction), size);
+        $style: map-get(map-get($borders, $direction), style);
+        $color: map-get(map-get($borders, $direction), color);
+        border-bottom: $size $style $color;
+        } @else if $direction == "left" {
+        $size: map-get(map-get($borders, $direction), size);
+        $style: map-get(map-get($borders, $direction), style);
+        $color: map-get(map-get($borders, $direction), color);
+        border-left: $size $style $color;
+        }
+    }
+}
+
+// Single side border-radius
+
+// @mixin border-radius($radius: $border-radius) {
+//     @if $enable-rounded {
+//         @include rem-fallback(border-radius, $radius);
+//     }
+// }
+  
+// @mixin border-top-radius($radius) {
+//     @if $enable-rounded {
+//         @include rem-fallback(border-top-left-radius, $radius);
+//         @include rem-fallback(border-top-right-radius, $radius);
+//     }
+// }
+  
+// @mixin border-right-radius($radius) {
+//     @if $enable-rounded {
+//         @include rem-fallback(border-top-right-radius, $radius);
+//         @include rem-fallback(border-bottom-right-radius, $radius);
+//     }
+// }
+  
+// @mixin border-bottom-radius($radius) {
+//     @if $enable-rounded {
+//         @include rem-fallback(border-bottom-left-radius, $radius);
+//         @include rem-fallback(border-bottom-right-radius, $radius);
+//     }
+// }
+  
+// @mixin border-left-radius($radius) {
+//     @if $enable-rounded {
+//         @include rem-fallback(border-top-left-radius, $radius);
+//         @include rem-fallback(border-bottom-left-radius, $radius);
+//     }
+// }

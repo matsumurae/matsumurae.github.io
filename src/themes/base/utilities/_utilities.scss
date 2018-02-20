@@ -1,0 +1,105 @@
+// Obtained from https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+//----------------------------------------------------------------------------------
+
+// Elimina la unidad del valor (ej.: px, em, rem) de un valor, devolviendo solo el valor
+//
+// @param {Number} $num - valor con unidad (ej.: 16px).
+//
+// @returns {Number} El mismo número sin la unidad.
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+// Convierte uno o más valores px -> rem, rem-> px o px -> em.
+//
+// @param {Number|List} $values - uno o más valores a convertir.
+// Aegurate de separa los valores con espacios y no con comas. Si necesitas separar los valores a convertir con commas utiliza parentesis
+// ej.: unit-calc((20, 10, 20, 10), rem).
+// @param {Number} $base [null] - Base que se usa para hacer el calculo de conversion a px->rem, em o rem->px.
+//
+// @returns {List} A list of converted values.
+@function unit-calc($values, $unit:null, $base: null) {
+    $unit-values: ();
+    $count: length($values);
+
+    @if $count == 1 {
+        @return -convert-to($values, $unit, $base);
+    }
+
+    @for $i from 1 through $count {
+        $unit-values: append($unit-values, -convert-to(nth($values, $i), $unit, $base));
+    }
+
+    @return $unit-values;
+}
+
+// Convierte px -> rem, rem-> px o px -> em
+// Casos de uso:
+//     $value: sin unidad, ej.:20, se debe pasar el parametro $unit: con la unidad a convertir
+//     -convert-to(20, rem): 20 se convertirá a rem; 1.25rem
+//
+//     $value: con unidad en px, no es necesario pasar el parametro $unit, $value será convertido a rem
+//     -convert-to(20px); 20px se convertirá a rem; 1.25rem
+//
+//     $value: con unidad en rem, no es necesario pasar el parametro $unit, $value será convertido a px
+//     -convert-to(1.25rem); 1.25rem, se convertirá a px; 20px
+//
+//     Siempre que se pase el parametro $unit, $value(se puede o no indicar la unidad; 20px ó 20) será convertido a px.
+//     -convert-to(20, em)
+//     -convert-to(20px, em)
+//
+// @param {number. con unidad o núm. sin unidad} $value - Valor a convertir
+// @param {string unidad [px,rem o em] } $unit - Unidad a la que se desea convertir
+// @param {number} $base - Base para realizar el cálculo
+//
+//@returns {Number} - Devuelve un unidad en px,rem o em
+@function -convert-to($value, $unit: null, $base: null) {
+    $convert-value: $value;
+  
+    @if $value == 0rem or $value == 0px or $value == 0 {
+        @return 0;
+  
+    } @else {
+        // If no base is defined, defer to the global font size
+        @if $base == null {
+            $base: $global-font-size;
+        }
+  
+        // If the base font size is a %, then multiply it by 16px
+        // This is because 100% font size = 16px in most all browsers
+        @if unit($base) == '%' {
+            $base: ($base / 100%) * 16px;
+        }
+        //px a rem
+        @if $unit == null and unit($value) == 'px' or $unit == 'rem' {
+            $convert-value: strip-unit($value) / strip-unit($base) * 1rem;
+
+            @if strip-unit($value) % 1 != 0 {
+                @warn 'El valor introducido: ' + $value + ' no es un valor entero y quieres convertirlo a rem (' + $value + 'px -> rem).
+                El valor debería ser un número entero en px, revísalo quizás el valor que te devuelva no sea lo que tu esperas.
+                Resultado: ' + $value + 'px equivale a '+ $convert-value
+            }
+    
+            //rem a px
+        } @else if $unit == null and unit($value) == 'rem' or $unit == 'px' {
+            $convert-value: round(strip-unit($value) * strip-unit($base)) * 1px;
+    
+    
+            //px a em
+        } @else if unit($value) == 'px' and $unit == 'em' or $unit == 'em' {
+            $convert-value: strip-unit(-convert-to(strip-unit($value),rem)) * 1em;
+
+            @if strip-unit($value) % 1 != 0 {
+                @warn 'El valor debería ser un número entero de px, revísalo quizás el valor que te devuelva no sea lo que tu esperas';
+            }
+        } @else if $unit == null and unit($value) == 'em' {
+            @error 'Si deseas calcular px en em, debes indicar la unidad con el parametro $unit'
+                    + 'ej.: -convert-to('+ strip-unit($value) +'px, '+ unit($value) +') o'
+                    + 'ej.: -convert-to('+ strip-unit($value) +', '+ unit($value) +')';
+        } @else if $unit == null and unit($value) == '' {
+            @error 'No ha indicado ninguna unidad a convertir.';
+            @return null;
+        }
+    }
+    @return $convert-value;
+}

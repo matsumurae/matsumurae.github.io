@@ -1,0 +1,22 @@
+// Styles theme
+
+// 1. Variables
+// 2. Base
+// 3. Components
+// 4. Pages
+
+// First import
+// Needed for variables
+@import "./../base/mixins/common";
+
+// 1. Variables
+@import "variables";
+
+// 2. Skeleton base
+@import "./../base/main";
+
+// 3. Components
+@import "components";
+
+// 4. Pages
+@import "./../base/pages/error";

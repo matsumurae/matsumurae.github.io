@@ -1,0 +1,169 @@
+// Stealed from https://codepen.io/dominicgan/pen/jqLXNb
+
+// Box
+.ui-datepicker {
+	border-width: 0;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	width: 18.5rem;
+	padding: 0;
+
+	@media (max-width: 480px){ width: 17rem; }
+	&.ui-corner-all { border-radius: 0; }
+}
+
+// Header
+//-----------------------------------------------------
+.ui-datepicker .ui-datepicker-header {
+	background: #DD5044;
+	padding: 15px 0;
+	border-width: 0;
+	border-radius: 0;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+	cursor: pointer;
+	top: 15px;
+
+	span {
+		background: transparent;
+		width: 0px;
+		height: 0px;
+		border-width: 5px 9px;
+		border-style: solid;
+		border-color: transparent;
+		margin-top: 0;
+		top: 32%;
+	}
+
+	&.ui-state-hover {
+		background: transparent;
+		border-color: transparent;
+	}
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev span {
+	left: 59%;
+	border-right-color: $white;
+	border-left-width: 0;
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next span {
+	left: 67%;
+	border-left-color: $white;
+	border-right-width: 0;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-title {
+	text-shadow: none;
+
+	select {
+		border: 0;
+		height: 27px;
+		width: 45%;
+		width: calc(49% - 5px);
+		font-family: $font-family-base;
+		font-size: $font-size-sm;
+		color: tint($black, 20%);
+		padding-left: 5px;
+
+		&:focus { outline: none; }
+	}
+
+	.ui-datepicker-month { margin-right: 5px; }
+
+	.ui-datepicker-year { margin-left: 5px; }
+}
+
+// Calendar container
+//--------------------------------------------------------
+.ui-datepicker-calendar {
+	margin-top: rem(10);
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+}
+
+.ui-datepicker-calendar th {
+	font-weight: 600;
+	text-transform: uppercase;
+
+	&.ui-datepicker-week-end * { color: #DD5044; }
+}
+
+.ui-datepicker-calendar td {
+	span,
+	a {
+		padding: .4em .2em;
+		font-size: $font-size-base;
+		text-align: center;
+	}
+
+	.ui-state-default,
+	.ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default,
+	.ui-button {
+		background: transparent;
+		border-color: #FFF;
+	}
+	
+	.ui-state-default.ui-state-hover {
+		border-color: transparent;
+		text-shadow: none;
+		background: #ededed;
+		font-weight: normal;
+		color: inherit;
+	}
+
+	.ui-state-highlight { border-color: transparent; }
+	
+	.ui-state-active,
+	.ui-state-active.ui-state-highlight,
+	.ui-state-active.ui-state-hover  {
+		text-shadow: none;
+		font-weight: 400;
+		background: #DD5044;
+		border-color: #DD5044;
+		color: $white;
+	}
+	
+	&.ui-datepicker-week-end {
+		* { color: tint($black, 60%); }
+		.ui-state-active { color: $white; }
+	}
+
+	&.ui-datepicker-today { border: solid 1px #dbdbdb; }
+}
+
+// Content divider and under content
+//-------------------------------------------------------------
+// For divide calendar from under buttons ( close, today ... )
+.ui-datepicker .ui-widget-content {
+	border-color: #e3e3e3;
+	
+	[type='button'] {
+		font-size: $font-size-base;
+		font-family: $font-family-base;
+	}
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+	@include transition(all 0.15s ease-in-out);
+	background: $white;
+	border: 0px;
+	font-weight: 600;
+	margin: 10px 5px;
+	padding: 5px 12px;
+	font-size: $font-size-base;
+	text-transform: uppercase;
+	
+	&[data-handler="today"]:hover,
+	&[data-handler="today"]:active {
+	opacity: 1;
+	color: #4f4f4f;
+	}
+
+	&[data-handler="hide"]:hover,
+	&[data-handler="hide"]:active {
+		color: #DD5044;
+	}
+}
+
+// .ui-datepicker-trigger { margin: 10px; }

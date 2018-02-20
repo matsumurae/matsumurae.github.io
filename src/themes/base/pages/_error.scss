@@ -1,0 +1,79 @@
+.error-page {
+    // IE9 fallback
+    // https://github.com/coliff/bootstrap-ie8/blob/master/css/bootstrap-ie9.css
+    clear: both;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    
+    background-color: $error-bg;
+    color: $error-color;
+    text-align: $error-text-align;
+}
+
+.error-page .error__content {
+    // IE9 fallback
+    // https://github.com/coliff/bootstrap-ie8/blob/master/css/bootstrap-ie9.css
+    clear: both;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+
+    display: flex;
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content { color: $error-title-color; }
+
+.error-page .error__heading {
+    font-weight: $error-title-max-font-weight;
+    @include rem-fallback(margin-bottom, $error-title-margin-bottom);
+    
+    .error__title,
+    .error__subtitle { display: block; }
+    .error__title {
+        @include rem-fallback(font-size, $error-title-font-size);
+    }
+    .error__title--big {
+        text-transform: $error-title-text-transform;
+        @include rem-fallback(font-size, $error-title-big-font-size);
+
+        @include for-phone-only { @include rem-fallback(font-size, $error-title-big-font-size-mobile); }
+    }   
+    .error__subtitle {
+        margin: 0 20px;
+        @include rem-fallback(font-size, $error-subtitle-font-size);
+    }
+}
+
+.error-page .error__tip {
+    font-style: italic;
+
+    .tip__title {
+        font-weight: 500;
+        color: $cyan;
+    }
+    .tip__message {
+        margin-left: 5px;
+    }
+}
+
+// Social buttons
+.error-page .social { @include rem-fallback(margin-top, 50px); }
+.error-page .social a {
+    color: #2a2f3a;
+
+    &:hover {
+        color: $white;
+        text-decoration: none;
+    }
+
+    .zmdi { 
+        @include rem-fallback(font-size, 40px);
+        @include rem-fallback(margin-right, 10px);
+    }
+}

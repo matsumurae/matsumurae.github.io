@@ -1,0 +1,17 @@
+$navbar-bg-color: #fff;
+$navbar-height: 3.438rem; // 55px
+$navbar-border-bottom: 1px solid $gray-200;
+$navbar-border-radius: 0;
+$navbar-text-color: $gray-600;
+
+$navbar-brand-bg-color: #fbfbfb;
+$navbar-brand-logo: url($public-img-path + "/iot/IOTLABS-logo.svg");
+$navbar-brand-minimized-logo: url($public-img-path + "/iot/IOTLABS-simple.svg");
+$navbar-brand-padding-y: 0.5rem; // 8px
+$navbar-brand-padding-x: 1rem; // 16px
+
+$nav-link-padding-y: 0.5rem; // 8px
+$nav-link-padding-x: 1rem; // 16px
+
+$nav-link-notification-padding-y: 1rem; // 16px
+$nav-link-notification-padding-x: 1rem; // 16px

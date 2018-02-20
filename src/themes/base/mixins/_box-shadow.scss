@@ -1,0 +1,9 @@
+// @import "./../../../../../node_modules/bootstrap/scss/mixins/box-shadow";
+
+@mixin box-shadow($shadow...) {
+    @if $enable-shadows {
+        @include rem-fallback(box-shadow, $shadow);
+        // box-shadow: $shadow;
+    }
+}
+  

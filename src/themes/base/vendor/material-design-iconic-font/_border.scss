@@ -1,0 +1,16 @@
+// Bordered icons
+// -------------------------
+
+.#{$zmdi-css-prefix}-border {
+  // padding: .1em .25em;
+  border: solid .1em $md-border-color;
+  border-radius: 2px;
+  @include rem-fallback(padding, (.1rem .25rem));
+}
+
+.#{$zmdi-css-prefix}-border-circle {
+  // padding: .1em .25em;
+  border: solid .1em $md-border-color;
+  border-radius: 50%;
+  @include rem-fallback(padding, (.1rem .25rem));
+}

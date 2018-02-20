@@ -1,0 +1,264 @@
+// @import "./../../../../../../node_modules/bootstrap/scss/dropdown";
+
+// BT
+//---------------------------------------------------------------
+// The dropdown wrapper (`<div>`)
+.dropup,
+.dropdown {
+  	position: relative;
+}
+
+.dropdown-toggle {
+	// Generate the caret automatically
+	&::after {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		margin-left: $caret-width * .85;
+		vertical-align: $caret-width * .85;
+		content: "";
+		border-top: $caret-width solid;
+		border-right: $caret-width solid transparent;
+		border-left: $caret-width solid transparent;
+	}
+
+	&:empty::after {
+		margin-left: 0;
+	}
+}
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// Just add .dropup after the standard .dropdown class and you're set.
+.dropup {
+	.dropdown-menu {
+		margin-top: 0;
+		margin-bottom: $dropdown-spacer;
+	}
+
+	.dropdown-toggle {
+		&::after {
+		border-top: 0;
+		border-bottom: $caret-width solid;
+		}
+	}
+}
+
+// The dropdown menu
+.dropdown-menu {
+	position: absolute;
+	top: 100%;
+	//   left: 0;
+	z-index: $zindex-dropdown;
+	display: none; // none by default, but block on "open" of the menu
+	float: left;
+	padding: $dropdown-padding-y 0;
+	margin: $dropdown-spacer 0 0; // override default ul
+	font-size: $font-size-base; // Redeclare because nesting can cause inheritance issues
+	color: $body-color;
+	text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+	list-style: none;
+	background-color: $dropdown-bg;
+	background-clip: padding-box;
+	border: $dropdown-border-width solid $dropdown-border-color;
+	// @include rem-fallback(padding, ($dropdown-padding-y 0));
+	@include rem-fallback(margin, ($dropdown-spacer 0 0));
+	@include rem-fallback(min-width, $dropdown-min-width);
+	@include border-radius($border-radius);
+	@include box-shadow($dropdown-box-shadow);
+}
+
+// Dividers (basically an `<hr>`) within the dropdown
+.dropdown-divider {
+  	@include nav-divider($dropdown-divider-bg);
+}
+
+// Links, buttons, and more within the dropdown menu
+//
+// `<button>`-specific styles are denoted with `// For <button>s`
+.dropdown-item {
+	display: block;
+	width: 100%; // For `<button>`s
+	clear: both;
+	font-weight: $font-weight-normal;
+	color: $dropdown-link-color;
+	text-align: inherit; // For `<button>`s
+	white-space: nowrap; // prevent links from randomly breaking onto new lines
+	background: none; // For `<button>`s
+	border: 0; // For `<button>`s	
+	@include rem-fallback(padding, ($dropdown-item-padding-y $dropdown-item-padding-x));	
+
+	@include hover-focus {
+		color: $dropdown-link-hover-color;
+		text-decoration: none;
+		background-color: $dropdown-link-hover-bg;
+	}
+
+	&.active,
+	&:active {
+		color: $dropdown-link-active-color;
+		text-decoration: none;
+		background-color: $dropdown-link-active-bg;
+	}
+
+	&.disabled,
+	&:disabled {
+		color: $dropdown-link-disabled-color;
+		background-color: transparent;
+		// Remove CSS gradients if they're enabled
+		@if $enable-gradients {
+			background-image: none;
+		}
+	}
+}
+
+// Open state for the dropdown
+.show {
+	// Remove the outline when :focus is triggered
+	> a {
+		outline: 0;
+	}
+}
+
+.dropdown-menu.show {
+  	display: block;
+}
+
+// Dropdown section headers
+.dropdown-header {
+	display: block;
+	padding: $dropdown-padding-y $dropdown-item-padding-x;
+	margin-bottom: 0; // for use with heading elements
+	font-size: $font-size-sm;
+	color: $dropdown-header-color;
+	white-space: nowrap; // as with > li > a
+}
+
+// CUSTOM
+//---------------------------------------------------------------
+.dropdown .dropdown-toggle {
+    color: $link-color;
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+.dropdown-menu { @include rem-fallback(max-width, $dropdown-max-width); }
+
+.dropdown-header {
+    // text-transform: $dropdown-title-text-transform;
+    font-size: $dropdown-title-font-size;
+    // letter-spacing: $dropdown-title-letter-spacing;
+    font-weight: $dropdown-title-font-weight;
+    color: $dropdown-title-text-color;
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    border-bottom: 1px solid $dropdown-border-color;
+}
+
+.dropdown-item {
+	position: relative;
+	font-weight: 300;
+	font-size: $h6-font-size;
+
+	.icon {
+		margin-right: 5px;
+		color: $gray-400;
+	}
+
+	.status__icon,
+	.status__content {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.status__content { @include rem-fallback(max-width, $dropdown-content-max-width); }
+
+	// Icon
+	.status {
+		margin-right: 8px;
+		border-radius: 50%;
+		height: $dropdown-status-height;
+		width: $dropdown-status-width;
+		background-color: $dropdown-status-background-color;
+		display: inline-block;
+		vertical-align: middle;
+		color: $dropdown-status-color;
+		position: relative;
+
+		&.status--danger:before,
+		&.status--info:before,
+		&.status--warning:before,
+		&.status--success:before {
+			content: "";
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			font-size: $dropdown-status-icon-font-size/1;
+			font-family: 'Material-Design-Iconic-Font';
+			text-align: center;
+			@include center(both);
+		}
+		
+		// &.status--danger { background-color: $red; }
+		&.status--danger:before {
+			content: $dropdown-status-icon-danger;
+			color: $red;
+		}
+
+		// &.status--warning { background-color: $orange; }
+		&.status--warning:before {
+			content: $dropdown-status-icon-warning; 
+			color: $orange;
+		}
+
+		// &.status--info { background-color: $cyan; }
+		&.status--info:before {
+			content: $dropdown-status-icon-info; 
+			color: $cyan;
+		}
+
+		// &.status--success { background-color: $green; }
+		&.status--success:before { 
+			content: $dropdown-status-icon-success; 
+			color: $green;
+		}
+	}
+
+	// .status__title {}
+	.status__message {
+		font-size: 12px;
+
+		// Ellipsis
+		max-width: inherit;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.status__date {
+		font-size: 10px;
+		color: $gray-400;
+		font-weight: 500;
+		letter-spacing: 1px;
+	}
+}
+// Fix hover border-radius in top
+.dropdown-item:first-child:hover {
+  	@include border-top-radius($border-radius);
+}
+// Fix hover border-radius in bottom - last child
+.dropdown-item:last-child:hover {
+  	@include border-bottom-radius($border-radius);
+}
+
+.dropdown-menu .divider {
+    height: 0;
+    overflow: hidden;
+	border-top: 1px solid $gray-200;
+	margin: $dropdown-divider-margin;
+	// @include rem-fallback(margin, $dropdown-divider-margin);
+}
+
+// Positions
+.dropdown-menu.dropdown--right { right: 0; }
+.dropdown-menu.dropdown--left { left: 100%; }
+.dropdown-menu.dropdown--center { 
+    left: 50%;
+    transform: translate(-50%,0%);
+}
