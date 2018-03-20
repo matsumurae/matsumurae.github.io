@@ -125,13 +125,6 @@ mark,
 }
 
 // Custom
-.s-blue-title {
-    text-transform: uppercase;
-    color: #77A8E8;
-    @include rem-fallback(font-size, 0.625rem);
-}
-
-.s-grey-title {
-    color: #9B9B9B;
-    @include rem-fallback(font-size, 0.625rem);
+@each $color, $value in $theme-colors {
+    .text--#{$color} { color: $value; }
 }

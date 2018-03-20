@@ -23,9 +23,7 @@ $card-sizes: ('xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl');
 $card-container-padding: 8px !default;
 $card-box-shadow: none !default;
 
-$card-title-margin-bottom: 0 !default;
-$card-image-title-margin-bottom: $card-spacer-y !default;
-
+$card-header-margin-bottom: 0 !default;
 $card-header-height: 4.125rem !default;
 $card-header-padding-y: 0.3125rem !default;
 $card-header-padding-x: 0.625rem !default;
@@ -39,17 +37,4 @@ $card-header-border-bottom: $card-border-width solid $card-border-color !default
 // $card-header-text-color: #606D88 !default;
 $card-header-text-color: #acb2bf !default;
 
-$card-options-text-transform: uppercase !default;
-$card-options-letter-spacing: 1px !default;
-$card-options-font-weight: 600 !default;
-$card-options-font-size: 0.8rem !default;
-$card-options-margin-right: 5px !default;
-$card-options-detail-color: #cacaca !default;
-
-$card-alone-padding: 1.563rem !default;
-$card-alone-title-margin: 20px !default;
-$card-alone-icon-font-size: 2.2rem !default;
-$card-alone-details-padding: 1.25rem !default;
-$card-alone-details-font-size: 0.875rem !default;
-$card-alone-details-bg: rgba(95, 108, 136, 0.8) !default;
-$card-alone-details-color: #fff !default;
+$card-footer-text-color: inherit !default;
