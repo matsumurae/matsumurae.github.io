@@ -13409,6 +13409,11 @@ h6,
     font-size: 20px;
     font-size: 1.25rem;
     font-weight: 300;
+    a {
+        color: inherit;
+        text-decoration: underline;
+        font-weight: 600;
+    }
 }
 
 .display-1
