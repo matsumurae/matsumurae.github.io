@@ -23,6 +23,11 @@ h6, .h6 { @include rem-fallback(font-size, $h6-font-size); }
 .lead {
     font-weight: $lead-font-weight;
     @include rem-fallback(font-size, $lead-font-size);
+    a {
+        color: inherit;
+        text-decoration: underline;
+        font-weight: $font-weight-bold;
+    }
 }
 
 // Type display classes
